@@ -1,0 +1,129 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 6.3 - Overflow & Layout Fixing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.5;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+
+    /* Common styling for fixed-size containers */
+    .box {
+      width: 300px;
+      height: 120px;
+      border: 2px solid #333;
+      padding: 10px;
+      background-color: #f9f9f9;
+      margin-bottom: 30px;
+    }
+
+    /* 1. Visible - Content spills outside the box */
+    .overflow-visible {
+      overflow: visible;
+    }
+
+    /* 2. Hidden - Content that overflows is clipped and invisible */
+    .overflow-hidden {
+      overflow: hidden;
+    }
+
+    /* 3. Scroll - Scrollbars are always added, whether needed or not */
+    .overflow-scroll {
+      overflow: scroll;
+    }
+
+    /* 4. Auto - Scrollbars are added ONLY when content overflows */
+    .overflow-auto {
+      overflow: auto;
+    }
+
+    /* Step 5: Fixing an Overflow Issue Example */
+    .broken-layout {
+      width: 250px;
+      border: 2px red solid;
+      padding: 10px;
+      /* Problem: Text or images overflow horizontally because of long words/elements */
+    }
+
+    .fixed-layout {
+      width: 250px;
+      border: 2px green solid;
+      padding: 10px;
+      overflow: auto; /* Fixes block container overflow */
+      word-wrap: break-word; /* Prevents long unbreakable text from spilling out */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Assignment 6.3: Overflow & Layout Fixing</h1>
+
+  <!-- Step 3: Testing different overflow values -->
+  
+  <h2>1. overflow: visible</h2>
+  <div class="box overflow-visible">
+    This box has <code>overflow: visible</code>. The content inside is longer than the container height, so it overflows and spills out into the surrounding page elements below it without adding scrollbars.
+  </div>
+
+  <h2>2. overflow: hidden</h2>
+  <div class="box overflow-hidden">
+    This box has <code>overflow: hidden</code>. The content inside is longer than the box height, so any extra text that exceeds 120px height is clipped and completely hidden from view.
+  </div>
+
+  <h2>3. overflow: scroll</h2>
+  <div class="box overflow-scroll">
+    This box has <code>overflow: scroll</code>. Scrollbars are permanently shown on both axes (horizontal and vertical), allowing users to scroll through the overflowing text content.
+  </div>
+
+  <h2>4. overflow: auto</h2>
+  <div class="box overflow-auto">
+    This box has <code>overflow: auto</code>. Scrollbars appear dynamically only when the text content exceeds the box dimensions, providing a clean user interface.
+  </div>
+
+  <hr>
+
+  <!-- Step 5: Identifying and fixing an overflow issue -->
+  <h2>Step 5: Layout Fix Demonstration</h2>
+
+  <h3>Before (Overflow Bug)</h3>
+  <div class="broken-layout">
+    <p>Unbroken text like SupercalifragilisticexpialidociousWillOverflowTheContainer if not handled.</p>
+  </div>
+
+  <h3>After (Fixed Layout)</h3>
+  <div class="fixed-layout">
+    <p>Unbroken text like SupercalifragilisticexpialidociousWillOverflowTheContainer is safely contained using <code>overflow: auto</code> and <code>word-wrap: break-word</code>.</p>
+  </div>
+
+</body>
+</html>
+Key Concepts Summary for Submission
+overflow: visible: Default value. Content is not clipped and renders outside the container box.
+
+overflow: hidden: Content that extends past the container size is clipped and hidden without providing scrollbars.
+
+overflow: scroll: Clips content and forces the browser to render scrollbars regardless of whether the content actually overflows.
+
+overflow: auto: Clips content only if necessary and automatically adds scrollbars only when the content exceeds the container boundaries.
+
+Screenshot Instructions for Submission
+Open your saved HTML file in a web browser.
+
+Ensure all four tested boxes (visible, hidden, scroll, and auto) as well as the fixed layout section are clearly visible.
+
+Take a screenshot showing:
+
+How overflow: visible spills text down the page.
+
+How overflow: auto adds neat scrollbars to view the hidden content.
+
+The contrast between the broken overflow layout and the fixed layout in Step 5.
